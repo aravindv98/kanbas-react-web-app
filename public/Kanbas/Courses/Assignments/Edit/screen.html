@@ -45,7 +45,7 @@
                                     <li class="breadcrumb-item">CS5610 Web Development</li>
                                     <li class="breadcrumb-item">Spring 2024</li>
                                     <li class="breadcrumb-item">Section 7</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Assignments</li>
+                                    <li class="breadcrumb-item" aria-current="page">A1 + ENV</li>
                                 </ol>
                             </nav>
                         </div>
@@ -82,80 +82,228 @@
                             </ul>     
                       </div>
                       <div class="col-xl">
-                <td style="vertical-align:top;">
-                    <button type="button">SpeedGrader</button>
-                    <hr>
-                    <h2>Assignment Name</h2>
-                    <input type="text" value="A1 - ENV - HTML">
-                    <br>
-                    <br>
-                    <textarea cols="30" rows="2">This is the assignment description.</textarea>
-                    <br>
-                    <br>
-                    <label id="points">Points</label><br>
-                    <input type="text" value="100">
-                    <br>
-                    <br>
-                    <label id="assignment_group">Assignment Group</label>
-                    <br>
-                    <select id="assignment_group">
-                        <option value="Assignments" selected>Assignments</option>
-                    </select>
-                    <br>
-                    <br>
-                    <label id="display_grad">Display Grade as</label>
-                    <br>
-                    <select id="display_grad">
-                        <option value="Percentage" selected>Percentage</option>
-                    </select>
-                    <br>
-                    <br>
-                    <label id="submission_type">Submission Type</label>
-                    <br>
-                    <select id="submission_type"">
-                        <option value="Online" selected>Online</option>
-                    </select>
-                    <br>
-                    <br>
-                    <label id="online_entry_options">Online Entry Options</label>
-                    <br>
-                    <input type="checkbox" value="Text Entry"
-                      name="check-online" id="chkbox-txt-entry"/>
-                    <label for="chkbox-txt-entry">Text Entry</label><br/>
-                    <input type="checkbox" value="Website URL"
-                      name="check-online" id="chkbox-web-url"/>
-                    <label for="chkbox-web-url">Website URL</label><br/>
-                    <input type="checkbox" value="Media Recordings"
-                      name="check-online" id="chkbox-media-recordings"/>
-                    <label for="chkbox-media-recordings">Media Recordings</label><br/>
-                    <input type="checkbox" value="Student Annotation"
-                      name="check-online" id="chkbox-std-annotation"/>
-                    <label for="chkbox-std-annotation">Student Annotation</label><br/>
-                    <input type="checkbox" value="File Uploads"
-                      name="check-online" id="chkbox-file-uploads"/>
-                    <label for="chkbox-file-uploads">File Uploads</label><br/>
-                    <br>
-                    <label>Assign</label><br>
-                    <label>Assign To</label><br>
-                    <input type="text" value="Everyone"><br/>
-                    <br>
-                    <label>Due</label><br>
-                    <input type="date" value="2021-01-01"><br>
-                    <br>
-                    <label>Available from</label><br>
-                    <input type="date" value="2021-01-01"><br>
-                    <br>
-                    <label>Until</label><br>
-                    <input type="date" value="2021-01-01"><br>
-                    <br>
-                    <button type="Submit" onclick="window.location.href='/Kanbas/Courses/Assignments/screen.html'">Cancel</button>
-                    <button type="submit" onclick="window.location.href='/Kanbas/Courses/Assignments/screen.html'">Save</button>                
-                </td>
-              </div>
+                        <div style="width: 70%; margin-left: 20px;">
+
+                          <form>
+                              <div>
+                                  <div class="mb-3">
+      
+                                      <label for="disabledTextInput" class="form-label">Assignment Name</label>
+                                      <input type="text" id="disabledTextInput" class="form-control mb-2" value="A1 - SETUP">
+                                      <textarea class="form-control mb-2" id="textarea"
+                                          rows="5">This assignment describes how to install the development environment for creating and working with Web applications we will be developing this semester. We will add new content every week, pushing the code to a GitHub source repository, and then deploying the content to a remote server hosted on Netlify.</textarea>
+                                  </div>
+                              </div>
+                              <div class="container">
+                                  <div class="row justify-content-center">
+                                      <div class="col-10">
+                                        <div class="mb-3 row">
+                                          <div class="col-3">
+                                              <label for="text-fields-assignment">Points</label>
+                                          </div>
+                                          <div class="col-7">
+                                            <input type="text" id="disabledTextInput" class="form-control mb-2" value="100">
+                                          </div>
+                                      </div>
+                                          <div class="mb-3 row">
+                                              <div class="col-3">
+                                                  <label for="text-fields-assignment">Assignment Group</label>
+                                              </div>
+                                              <div class="col-7">
+                                                  <select class="form-select mb-2" id="text-fields-assignment">
+                                                      <option selected value="">ASSIGNMENT</option>
+                                                      <option value="speed-grader">Speed Grader</option>
+                                                      <option value="duplicate">Duplicate</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+      
+                                          <div class="mb-3 row">
+                                              <div class="col-3">
+                                                  <label for="text-fields-assignment">Display Grade as</label>
+                                              </div>
+                                              <div class="col-7">
+                                                  <select class="form-select mb-2" id="text-fields-assignment">
+                                                      <option selected value="percentage">Percentage</option>
+                                                      <option value="gpa">GPA</option>
+                                                      <option value="marks">Marks</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="checkboxNoLabel"
+                                                value="" aria-label="...">
+                                            <label class="form-check-label" for="checkboxNoLabel">Do not count this
+                                                assignment towards the final grade.</label>
+                                        </div>
+                                          <div class="mb-3 row">
+                                              <div class="col-3">
+                                                  <label for="text-fields-submissiontype">Submission Type</label>
+                                              </div>
+                                              <div class=" col-7 border border-1 p-3">
+                                                  <div class="">
+                                                      <select class="form-select mb-2" id="text-fields-submissiontype">
+                                                          <option selected value="online">Online</option>
+                                                          <option value="offline">Offline</option>
+                                                          <option value="na">NA</option>
+                                                      </select>
+                                                    </div>
+      
+                                                  <h6 class="mt-3">Online Entry Options</h6>
+      
+                                                  <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" id="chkbox-text-entry"
+                                                          value="Text Entry" checked>
+                                                      <label class="form-check-label" for="chkbox-text-entry">Text
+                                                          Entry</label>
+                                                  </div>
+      
+                                                  <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" id="chkbox-website-url"
+                                                          value="Website URL" checked>
+                                                      <label class="form-check-label" for="chkbox-website-url">Website
+                                                          URL</label>
+                                                  </div>
+      
+                                                  <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox"
+                                                          id="chkbox-media-recordings" value="Media Recordings" checked>
+                                                      <label class="form-check-label" for="chkbox-media-recordings">Media
+                                                          Recordings</label>
+                                                  </div>
+      
+                                                  <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox"
+                                                          id="chkbox-student-annotation" value="Student Annotation">
+                                                      <label class="form-check-label" for="chkbox-student-annotation">Student
+                                                          Annotation</label>
+                                                  </div>
+      
+                                                  <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" id="chkbox-file-uploads"
+                                                          value="File Uploads">
+                                                      <label class="form-check-label" for="chkbox-file-uploads">File
+                                                          Uploads</label>
+                                                  </div>
+                                              </div>
+                                          </div>
+      
+                                          <div class="mb-3 row">
+                                              <div class="col-3">
+                                                  <label for="text-fields-submissionattempts">Submission Attempts</label>
+                                              </div>
+                                              <div class="col-7">
+                                                  <select class="form-select mb-2" id="text-fields-submissionattempts">
+      
+                                                      <option selected value="unlimited">Unlimited</option>
+                                                      <option value="one">One</option>
+                                                      <option value="multiple">Multiple</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+      
+                                          <div class="mb-3 row">
+                                              <div class="col-3">
+                                                  <label for="text-fields-plagiarismreview">Plagiarism Review</label>
+                                              </div>
+                                              <div class="col-7">
+                                                  <select class="form-select mb-2" id="text-fields-plagiarismreview">
+                                                      <option selected value="none">None</option>
+                                                      <option value="yes">Yes</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+      
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" id="chkbox-group-assignment"
+                                                  value="Text Entry">
+                                              <label class="form-check-label" for="chkbox-group-assignment">This is a group
+                                                  assignment</label>
+                                          </div>
+      
+                                          <div class="form-check">
+                                              <input class="form-check-input" type="checkbox" id="chkbox-require-peer-reviews"
+                                                  value="Text Entry">
+                                              <label class="form-check-label" for="chkbox-require-peer-reviews">Require Peer
+                                                  Reviews</label>
+                                          </div>
+                                          <div class="container">
+                                              <div class="row">
+                                                  <div class="col-1">
+                                                      <label for="text-fields-submissionattempts">Assign</label>
+                                                  </div>
+                                                  <div class="col-10">
+                                                      <div class="row justify-content-center">
+                                                          <div class="col-md-6 border border-2 rounded p-3">
+                                                              <div class="mb-3 row">
+                                                                  <div class="col-3">
+                                                                      <label for="text-fields-assign">Assign To</label>
+                                                                  </div>
+                                                                  <div class="col-7">
+                                                                      <select class="form-select mb-2"
+                                                                          id="text-fields-assign">
+                                                                          <option selected value="unlimited">Everyone
+                                                                          </option>
+                                                                          <option value="one">One</option>
+                                                                          <option value="multiple">Multiple</option>
+                                                                      </select>
+                                                                  </div>
+                                                              </div>
+      
+                                                              <label for="text-fields-due">Due:</label><br />
+                                                              <input type="date" id="text-fields-due"
+                                                                  value="2021-01-01" /><br /><br />
+      
+                                                              <div class="row">
+                                                                  <div class="col">
+                                                                      <label for="text-fields-available">Available
+                                                                          from:</label><br />
+                                                                      <input type="date" id="text-fields-available"
+                                                                          value="2021-01-01" /><br /><br />
+                                                                  </div>
+                                                                  <div class="col">
+                                                                      <label for="text-fields-until">Until:</label><br />
+                                                                      <input type="date" id="text-fields-until"
+                                                                          value="2021-01-01" /><br /><br />
+                                                                  </div>
+                                                              </div>
+      
+                                                              <button type="submit"
+                                                                  class="btn btn-primary wd-profile-save-btn"
+                                                                  style="background-color:  #F9F8F8;color: #333333;border: #333333 solid 01px;">
+                                                                  Add
+                                                              </button>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="mt-3 row">
+                                              <div class="col-7">
+                                                  <input class="form-check-input" type="checkbox" id="chkbox-group-assignment"
+                                                      value="Text Entry">
+                                                  <label class="form-check-label" for="chkbox-group-assignment">Notify Users
+                                                      that this content is changed.</label>
+                                              </div>
+                                              <div class="col-4 float-end">
+                                                  <button type="submit" class="btn btn-primary wd-profile-save-btn"
+                                                      style="background-color:  #F9F8F8;color: #333333;border: #333333 solid 01px;">
+                                                      <a href="./screen.html" style="color: #333333;text-decoration: none;">
+                                                          Cancel</a>
+                                                  </button>
+                                                  <button type="submit" class="btn btn-primary wd-profile-save-btn"
+                                                      style="background-color: #c51e3a;border: #c51e3a;">
+                                                      <a href="./screen.html" style="color: white; text-decoration: none;">
+                                                          Save </a>
+                                                  </button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </form>
                       </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-    </body>
-</html>
+                  </div>
+              </div>
+      </body>
+      </html>
