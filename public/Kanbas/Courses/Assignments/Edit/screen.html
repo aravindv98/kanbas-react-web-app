@@ -1,42 +1,87 @@
 <html>
-    <table width="100%">
-        <tbody>
-            <tr>
-                <td style="vertical-align:top">
-                    <ul>
-                        <li><a href="/Kanbas/Account/Profile/screen.html">Account</a></li>
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="/Kanbas/Courses/Home/screen.html">Courses</a></li>
-                        <li><a href="#">Calendar</a></li>
-                        <li><a href="#">Inbox</a></li>
-                        <li><a href="#">History</a></li>
-                        <li><a href="#">Studio</a></li>
-                        <li><a href="#">Commons</a></li>
-                        <li><a href="#">Help</a></li>
-                    </ul>
-                </td>
-                <td style="vertical-align:top">
-                    <ul>
-                        <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
-                        <li><a href="#">Modules</a></li>
-                        <li><a href="#">Piazza</a></li>
-                        <li><a href="#">Zoom Meetings</a></li>
-                        <li><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
-                        <li><a href="#">Quizzes</a></li>
-                        <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
-                        <li><a href="#">People</a></li>
-                        <li><a href="#">Panopto Video</a></li>
-                        <li><a href="#">Discussions</a></li>
-                        <li><a href="#">Announcements</a></li>
-                        <li><a href="#">Pages</a></li>
-                        <li><a href="#">Files</a></li>
-                        <li><a href="#">Rubrics</a></li>
-                        <li><a href="#">Outcomes</a></li>
-                        <li><a href="#">Collaborations</a></li>
-                        <li><a href="#">Syllabus</a></li>
-                        <li><a href="/Kanbas/Courses/Settings/screen.html">Settings</a></li>
-                      </ul>          
-                </td>
+    <head>
+        <link rel="stylesheet" href="/Kanbas/style.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
+        <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Assignments/index.css" />
+        <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+            <div class="wd-flex-row-container">
+                <div class="row" style="height: 100%;">
+                    <div class="col-1">
+                        <ul class="wd-kanbas-navigation">
+                        <li><a href="http://northeastern.edu"><img src="../../../Logos/NU_logo.png"/></a></li>
+                        <li><a href="/Kanbas/Account/Profile/screen.html">
+                        <img src="../../../Logos/aravind.png" class="avatar"/>
+                        Account</a></li>
+                        <li><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i>
+                        Dashboard</a></li>
+                        <li class="wd-active"><a href="/Kanbas/Courses/Home/screen.html">
+                        <i class="fa fa-book"></i>Courses</a></li>
+                        <li><a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i>
+                        Calendar</a></li>
+                        <li><a href="/Kanbas/Inbox/index.html"><i class="fa fa-inbox"></i><br/>
+                        Inbox</a></li>
+                        <li><a href="/Kanbas/History/index.html"><i class="fa fa-history"></i>
+                        History</a></li>
+                        <li><a href="/Kanbas/Commons/index.html"><i class="fa fa-creative-commons"></i>
+                        Commons</a></li>
+                        <li><a href="/Kanbas/Studio/index.html"><i class="fa fa-video-camera"></i>
+                        Studio</a></li>
+                        <li><a href="/Kanbas/Help/index.html"><i class="fa fa-question-circle"></i><br/>
+                        Help</a></li>
+                        </ul>
+                </div>
+                <div class="col-xl">
+                    <div class="row" style="width: 100%;">
+                        <div class="col">
+                            <nav style="--bs-breadcrumb-divider:  '>';" aria-label="breadcrumb">
+                                <ol class="breadcrumb wd-course-header" style="padding-top: 10px; padding-left: 10px; ">
+                                    <i class="fa fa-bars" style="color: #C51E3A;padding-right: 20px; font-size: 25px;"
+                                        aria-hidden="true"></i>
+                                    <li class="breadcrumb-item">CS5610 Web Development</li>
+                                    <li class="breadcrumb-item">Spring 2024</li>
+                                    <li class="breadcrumb-item">Section 7</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Assignments</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col float-end">
+                            <button type="button" class="btn btn-primary float-end m-1 p-2"
+                                style="color:  #333333;background-color:  azure; border:  #333333 solid 1px; ">
+                                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                                Student View</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="container-fluid">
+                      <div class="row" style="height: 100%;">
+                      <div class="col-1">
+                          <ul class="wd-navigation">
+                              <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
+                              <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
+                              <li><a href="#">Piazza</a></li>
+                              <li><a href="#">Zoom Meetings</a></li>
+                              <li class="wd-active"><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
+                              <li><a href="#">Quizzes</a></li>
+                              <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                              <li><a href="#">People</a></li>
+                              <li><a href="#">Panopto Video</a></li>
+                              <li><a href="#">Discussions</a></li>
+                              <li><a href="#">Announcements</a></li>
+                              <li><a href="#">Pages</a></li>
+                              <li><a href="#">Files</a></li>
+                              <li><a href="#">Rubrics</a></li>
+                              <li><a href="#">Outcomes</a></li>
+                              <li><a href="#">Collaborations</a></li>
+                              <li><a href="#">Syllabus</a></li>
+                              <li><a href="/Kanbas/Courses/Settings/screen.html">Settings</a></li>
+                            </ul>     
+                      </div>
+                      <div class="col-xl">
                 <td style="vertical-align:top;">
                     <button type="button">SpeedGrader</button>
                     <hr>
@@ -106,7 +151,11 @@
                     <button type="Submit" onclick="window.location.href='/Kanbas/Courses/Assignments/screen.html'">Cancel</button>
                     <button type="submit" onclick="window.location.href='/Kanbas/Courses/Assignments/screen.html'">Save</button>                
                 </td>
-            </tr>
-        </tbody>
-    </table>
+              </div>
+                      </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </body>
 </html>

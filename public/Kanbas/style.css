@@ -5,5 +5,28 @@ body {
   body * {
     font-family: Arial, Helvetica, sans-serif;
   }
+  .wd-course-status ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wd-course-status li{
+list-style: none;
+text-align: left;
+word-wrap: break-word;
+}
+
+.wd-course-status btn{
+
+    cursor: pointer;
+    padding: 10px;
+
+}
+.wd-navbar a{
+    text-decoration: none; 
+    color: black;
+} 
+
   
   

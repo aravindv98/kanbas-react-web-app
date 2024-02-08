@@ -7,7 +7,8 @@
 }
 
 .wd-modules {
-  margin: 5px;
+  margin: 0px;
+  margin-left: 40px;
 }
 
 .wd-modules > li {
@@ -31,3 +32,6 @@
   margin-bottom: 20px;
 }
 
+.button-style{
+    color: #333333; background-color: azure; border: #E5E2E2 solid 1px;
+}
