@@ -14,14 +14,13 @@ function Courses() {
     (course) => course._id === courseId);
   return (
     <div>
-      <h3><HiMiniBars3 /> {course?._id} {course?.name}
+      <h4><HiMiniBars3 /> {course?._id} {course?.name}
       <div className="float-end">
                     <button type="button" className="btn btn-primary float-end m-1 p-1 color:  #333333;background-color:  azure; border:  #333333 solid 1px; ">
                         <i className="fa fa-eye-slash" aria-hidden="true"></i>
                         Student View</button>
                 </div>
-      </h3>
-      
+      </h4>
       <hr></hr>
       <CourseNavigation />
       <div>
