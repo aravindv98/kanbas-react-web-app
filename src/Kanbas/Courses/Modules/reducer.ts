@@ -4,7 +4,7 @@ import modules  from "../../Database/modules.json";
 
 const initialState = {
   modules: modules,
-  module: { name: "New Module 123", description: "New Description" },
+  module: { name: "New Module 123", description: "New Description", _id: "New Course Id" },
 };
 
 
