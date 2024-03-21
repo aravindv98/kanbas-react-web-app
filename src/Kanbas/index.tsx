@@ -4,6 +4,8 @@ import Dashboard from "./Dashboard";
 import Courses from "./Courses";
 import db from "./Database";
 import { useState } from "react";
+import store from "./Store";
+import { Provider } from "react-redux";
 function Kanbas() {
   const [courses, setCourses] = useState<any[]>(db.courses);
     const [course, setCourse] = useState({
@@ -31,6 +33,7 @@ function Kanbas() {
       );
     };
   return (
+    <Provider store={store}>
     <div className="" style={{height:'100%'}}>
     <div className="row" style={{height:'100%'}}>
       <div className="col-md-1">
@@ -62,7 +65,7 @@ function Kanbas() {
       </div>
     </div>
   </div>
-  
+  </Provider>
   );
 }
 

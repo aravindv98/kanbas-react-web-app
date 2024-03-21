@@ -3,11 +3,21 @@ import "./index.css";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
 import db from "../../Database";
-
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+} from "./reducer";
+import { KanbasState } from "../../Store";
 function ModuleList() {
     const { courseId } = useParams();
-    const modulesList = db.modules.filter((module) => module.course === courseId);
-    const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+    const moduleList = useSelector((state: KanbasState) => 
+    state.modulesReducer.modules);
+  const module = useSelector((state: KanbasState) => 
+    state.modulesReducer.module);
+  const dispatch = useDispatch();
   return (
 <div className="container-fluid">
     <div className="btn-group">
@@ -29,45 +39,57 @@ function ModuleList() {
         <li><a className="dropdown-item" href="#">Something else here</a></li>
       </ul>
     </div>
-    <div className="btn btn-danger " style={{ marginLeft: '5px' }}> + Module </div>
     <div className="btn btn-outline-secondary ">
       <FaEllipsisV></FaEllipsisV>
     </div>
   </div>
   <hr></hr>
-  <br></br>
-  <br></br>
 
+  <h3>Modules</h3>
+    
+  <button onClick={() => dispatch(addModule({ ...module, course: courseId }))}
+  className="btn btn-danger"> + Module</button>
+  <button onClick={() => dispatch(updateModule(module))} className="btn btn-success">
+                Update
+        </button>
+
+        <input className = "form-control" value={module.name}
+          onChange={(e) =>
+            dispatch(setModule({ ...module, name: e.target.value }))
+          }
+        />
+        <input className = "form-control" value={module._id}
+          onChange={(e) =>
+            dispatch(setModule({ ...module, _id: e.target.value }))
+          }
+        />
+        <textarea className = "form-control" value={module.description}
+           onChange={(e) =>
+            dispatch(setModule({ ...module, description: e.target.value }))}
+        />
     <ul className="list-group wd-modules">
-        {modulesList.map((module, index) => (
-          <li key={index}
-            className="list-group-item"
-            onClick={() => setSelectedModule(module)}>
-            <div>
-              <FaEllipsisV className="me-2" />
-              {module.name}
-              <span className="float-end">
-                <FaCheckCircle className="text-success" />
-                <FaPlusCircle className="ms-2" />
-                <FaEllipsisV className="ms-2" />
-              </span>
-            </div>
-            {selectedModule._id === module._id && (
-              <ul className="list-group">
-                {module.lessons?.map((lesson, index) => (
-                  <li className="list-group-item" key={index}>
-                    <FaEllipsisV className="me-2" />
-                    {lesson.name}
-                    <span className="float-end">
-                      <FaCheckCircle className="text-success" />
-                      <FaEllipsisV className="ms-2" />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
+  <br></br>
+  <br></br>
+    {moduleList
+        .filter((module) => module.course === courseId)
+        .map((module, index) => (
+          <li key={index} className="list-group-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+              <h5><strong>{module.name}</strong></h5>
+              <p>{module.description}</p>
+              <p>{module._id}</p>
+          </div>
+          <button className="btn btn-success btn-lg"
+              onClick={() => dispatch(setModule(module))}>
+              Edit
+            </button>
+
+          <button className="btn btn-success btn-lg" onClick={() => dispatch(deleteModule(module._id))}>
+              Delete
+          </button>
+      </li>
+      ))}
+
       </ul>
     </div>
   );
