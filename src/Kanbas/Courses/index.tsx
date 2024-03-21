@@ -8,6 +8,7 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
+import CreateAssignment from "./Assignments/CreateAssignments";
 function Courses({ courses }: { courses: any[]; }) {
   const { courseId } = useParams();
   const course = courses.find(
@@ -32,6 +33,7 @@ function Courses({ courses }: { courses: any[]; }) {
             <Route path="Modules" element={<Modules/>} />
             <Route path="Assignments"
                    element={<Assignments/>} />
+            <Route path="Assignments/CreateAssignment" element={<CreateAssignment />} />
             <Route path="Assignments/:assignmentId"
                    element={<AssignmentEditor/>}/>
             <Route path="Grades" element={<Grades/>} />
