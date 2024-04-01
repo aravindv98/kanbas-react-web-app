@@ -55,15 +55,13 @@ function Grades() {
           </button>
         </div>
       </div>
-
-      {/* Grades Table */}
       <div className="table-responsive">
         <table className="table table-striped">
           <thead>
             <tr>
               <th>Student Name</th>
               {assignments.map((assignment) => (
-                <th key={assignment._id}>{assignment.title} Out of 100</th>
+                <th key={assignment._id}>{assignment.name} Out of 100</th>
               ))}
             </tr>
           </thead>
