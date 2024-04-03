@@ -9,10 +9,21 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import CreateAssignment from "./Assignments/CreateAssignments";
+import { useState, useEffect } from "react";
+import axios from "axios";
 function Courses({ courses }: { courses: any[]; }) {
+  const COURSES_API = "http://localhost:4000/api/courses";
+  const [course, setCourse] = useState<any>({ _id: "" });
+  const findCourseById = async (courseId?: string) => {
+    const response = await axios.get(
+      `${COURSES_API}/${courseId}`
+    );
+    setCourse(response.data);
+  };
   const { courseId } = useParams();
-  const course = courses.find(
-    (course) => course._id === courseId);
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
   return (
     <div>
       <h4><HiMiniBars3 /> {course?._id} {course?.name}
