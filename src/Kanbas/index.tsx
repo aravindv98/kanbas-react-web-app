@@ -47,8 +47,7 @@ function Kanbas() {
           return c;
         })
       );
-    };
-  
+    };  
   return (
     <Provider store={store}>
     <div className="" style={{height:'100%'}}>

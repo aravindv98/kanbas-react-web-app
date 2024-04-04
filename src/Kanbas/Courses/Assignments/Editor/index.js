@@ -2,15 +2,23 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateAssignment } from "../assignmentsReducer";
+import * as client from '../service.js';
 
 function AssignmentEditor() {
     const { assignmentId, courseId } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const handleUpdateAssignment = async () => {
+        await client.updateAssignment(assignment);
+        dispatch(updateAssignment(assignment));
+      };
+    
+
     const initialAssignment = useSelector(state =>
         state.assignmentsReducer.assignments.find(assignment => assignment._id === assignmentId)
     );
+
 
     const [assignment, setAssignmentState] = useState(initialAssignment || {
         name: '',
@@ -35,7 +43,7 @@ function AssignmentEditor() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateAssignment(assignment));
+        handleUpdateAssignment();
         console.log("Assignment updated:", assignment);
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     };
@@ -91,6 +99,7 @@ function AssignmentEditor() {
                         required
                     />
                 </div>
+                {/*... other form elements...*/}
                 <button type="submit" className="btn btn-success">Save</button>
                 <button type="button" className="btn btn-danger ml-2" onClick={handleCancel}>Cancel</button>
             </form>
