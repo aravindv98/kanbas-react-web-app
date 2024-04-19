@@ -9,7 +9,6 @@ import axios from "axios";
 import Account from "./Account";
 
 function Kanbas() {
-    
     const [courses, setCourses] = useState<any[]>([]);
     const API_BASE = process.env.REACT_APP_API_BASE;
     const COURSES_API = `${API_BASE}/api/courses`;
@@ -83,4 +82,3 @@ function Kanbas() {
     );
 }
 export default Kanbas;
-
