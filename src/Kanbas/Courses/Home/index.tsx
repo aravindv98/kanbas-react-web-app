@@ -1,6 +1,6 @@
 import ModuleList from "../Modules/List";
 import Toolbar from "../Modules/Components/Toolbar";
-import CourseStatus from "./Status";
+import CourseStatus from "./status";
 
 function Home() {
   return (
