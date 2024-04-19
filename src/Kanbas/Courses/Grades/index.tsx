@@ -1,94 +1,164 @@
-import React from "react";
 import db from "../../Database";
 import { useParams } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileImport, faFileExport, faGear, faFilter } from '@fortawesome/free-solid-svg-icons';
+import { FaCog, FaFileExport, FaFileImport, FaFilter } from "react-icons/fa";
 
-function Grades() {
-  let  { courseId } = useParams();
-  if(courseId === '*') {
-    courseId = db.modules[0].course;
- }
-  
-  const assignments = db.assignments.filter((assignment) => assignment.course === courseId);
-  const enrollments = db.enrollments.filter((enrollment) => enrollment.course === courseId);
-
-  return (
-    <div className="col-8">
-      {/* Gradebook and other Buttons */}
-      <div className="d-flex justify-content-end mb-2">
-        <button className="btn btn-secondary mr-2">
-        <FontAwesomeIcon icon={faFileImport} /> Import
+const Toolbar = () => {
+    return (
+      <div className="col-12 mb-5">
+        <button className="btn btn-secondary float-end" type="button">
+          <FaCog color="#000000" />
         </button>
-        <div className="btn-group">
-          <button className="btn btn-success">
-          <FontAwesomeIcon icon={faFileExport} /> Export
+  
+        <span className="dropdown">
+          <button
+            className="btn btn-secondary dropdown-toggle float-end me-2"
+            type="button"
+            id="export"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <FaFileExport color="#0a0a0a" style={{ transform: "scaleX(-1)" }} />
+            Export
           </button>
-          <button className="btn btn-success dropdown-toggle mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-          <div className="dropdown-menu">
-            <button className="dropdown-item" >Option 1</button>
-            <button className="dropdown-item" >Option 2</button>
+          <ul className="dropdown-menu" aria-labelledby="export">
+            <li>
+              <a className="dropdown-item" href="#">
+                Export
+              </a>
+            </li>
+          </ul>
+        </span>
+  
+        <button className="btn btn-secondary float-end me-2" type="button">
+          <FaFileImport color="#1b1c1d" />
+          Import
+        </button>
+  
+        <select
+          className="form-select w-25 d-inline float-end me-2"
+          aria-label="Gradebook"
+        >
+          <option value="Gradebook" selected>
+            Gradebook
+          </option>
+        </select>
+      </div>
+    );
+  };
+  
+  const SearchBar = () => {
+    return (
+      <div className="col-12 mb-3">
+        <div className="row">
+          <div className="col-6">
+            <h5>Student Names</h5>
+          </div>
+          <div className="col-6">
+            <h5>Assignment Names</h5>
+          </div>
+          <div className="col-6">
+            <input
+              className="form-control"
+              type="text"
+              name="StudentName"
+              placeholder="Search Students"
+              title="Search using name of the students"
+            />
+          </div>
+          <div className="col-6">
+            <input
+              className="form-control"
+              type="text"
+              name="AssignmentName"
+              placeholder="Search Assignments"
+              title="Search using name of the assignments"
+            />
           </div>
         </div>
-        <button className="btn btn-info">
-          <FontAwesomeIcon icon={faGear} />
+      </div>
+    );
+  };
+  
+  const FilterButton = () => {
+    return (
+      <div className="col-12 mb-3">
+        <button className="btn btn-secondary" type="button">
+          <FaFilter color="#000000" aria-hidden="true" />
+          Apply Filters
         </button>
       </div>
-      <br /><br /><br />
+    );
+  };
+  
 
-      {/* Student and Assignment Search Bars */}
-      <div className="row mb-3">
-        <div className="col">
-          <h4>Student Names</h4>
-          <input type="text" className="form-control" placeholder="Search Students" />
-        </div>
-        <div className="col">
-          <h4>Assignment Names</h4>
-          <input type="text" className="form-control" placeholder="Search Assignments" />
-        </div>
-      </div>
-
-      <div className="row mb-3">
-        <div className="col">
-          <button className="btn btn-primary">
-          <FontAwesomeIcon icon={faFilter} /> Apply Filters
-          </button>
-        </div>
-      </div>
-      <div className="table-responsive">
-        <table className="table table-striped">
+  
+function Grades() {
+  const { courseId } = useParams();
+  const as = db.assignments.filter((assignment) => assignment.course === courseId);
+  const es = db.enrollments.filter((enrollment) => enrollment.course === courseId);
+  return (
+    <div  className="row me-5">
+      <Toolbar />
+      <SearchBar />
+      <FilterButton />
+      {/* <div className="table-responsive">
+        <table className="table table-striped table-bordered align-middle text-center fixed-width-table">
           <thead>
-            <tr>
+            <tr className="align-middle">
               <th>Student Name</th>
               {assignments.map((assignment) => (
-                <th key={assignment._id}>{assignment.name} Out of 100</th>
+                <th>{assignment.title}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {enrollments.map((enrollment) => {
-              const user = db.users.find((user) => user._id === enrollment.user);
+              const user = users.find(
+                (user) => user._id === enrollment.user
+              );
               return (
-                <tr key={enrollment._id}>
-                  <td>{user?.firstName} {user?.lastName}</td>
+                <tr>
+                  <td>
+                    {user?.firstName} {user?.lastName}
+                  </td>
                   {assignments.map((assignment) => {
-                    const grade = db.grades.find(
-                      (grade) => grade.student === enrollment.user && grade.assignment === assignment._id
+                    const grade = grades.find(
+                      (grade) =>
+                        grade.student === enrollment.user &&
+                        grade.assignment === assignment._id
                     );
-                    return (
-                   <td key={assignment._id}>
-                <input type="text" className="form-control" value={grade?.grade || ""} />
-            </td>
-                    );
+                    return <td>{grade?.grade || ""}</td>;
                   })}
                 </tr>
               );
             })}
           </tbody>
         </table>
+      </div> */}
+      <div className="table-responsive">
+      <table className="table table-striped table-bordered align-middle text-center fixed-width-table">
+          <thead>
+            <tr className="align-middle">
+              <th>Student Name</th>
+              {as.map((assignment) => (<th>{assignment.title}</th>))}
+            </tr>
+           
+          </thead>
+          <tbody>
+            {es.map((enrollment) => {
+              const user = db.users.find((user) => user._id === enrollment.user);
+              return (
+                <tr>
+                   <td>{user?.firstName} {user?.lastName}</td>
+                   {db.assignments.map((assignment) => {
+                     const grade = db.grades.find(
+                       (grade) => grade.student === enrollment.user && grade.assignment === assignment._id);
+                       return grade?.grade && (<td>{grade?.grade}</td>);})}
+                </tr>);
+            })}
+          </tbody></table>
       </div>
-    </div>
-  );
+      
+      </div>);
 }
-
 export default Grades;

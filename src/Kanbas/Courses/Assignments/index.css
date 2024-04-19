@@ -1,52 +1,100 @@
+.assignment-table .list-group-item {
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
 
-.green-border-left {
-    border-left: 3px solid green;
+.assignment-table a {
+    text-decoration: none;
     color: black;
 }
 
-.fa-file-lines {
-    color: green;
-    width: 40px;  /* adjust as needed */
-    height: 30px; /* adjust as needed */
-    margin-right: 5px;
+.hr-grow {
+    width: 101%;
+    margin-left: -12px;
 }
 
-h4 {
-    font-size: 20px;
-    margin: 5px;
-    padding: 5px;
+.wd-course-navigation-sm-size {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    /* margin-bottom: 20px; */
 }
 
-  
+.wd-course-navigation-sm-size a {
+    text-decoration: none;
+    color: white;
+}
 
-.plus {
-    padding-top: 1px;
-    padding-left: 5px;
+.list-group {
+    border-radius: 0px;
+}
+
+.col-margin-left {
+    margin-left: -23px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.header-item {
+    display: flex;
+    align-items: center;
+}
+
+.icon-black {
+    color: #050505;
+}
+
+.color-dark {
+    color: #434447;
+}
+
+.color-light {
+    color: #878885;
+}
+.confirmation-dialog {
+    position: fixed;
+    top: 20%; /* Adjust this value to control the vertical position */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #343a40; /* Dark background color */
+    color: #fff; /* Text color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
   }
-
-  .btn-secondary {
-    background-color: rgb(211, 211, 211);
-    border-color: rgb(211, 211, 211);
-    color: black;
-}
-
-.btn {
-    border-radius: 0;
-}
-
-.button-group .btn {
-    background-color: white; 
-    border: 2px solid transparent; 
-    color: red; 
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
-}
-
-.checkmark-icon {
-    color: green; /* Adjust as needed */
-    margin-left: auto;  /* Pushes the icon to the right */
-}
-
-.btn-font {
-    font-size: 20px;
-    padding-top: 3px;
-}
+  
+  .confirmation-dialog p {
+    margin-bottom: 15px;
+  }
+  
+  .confirmation-dialog button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirmation-dialog button:hover {
+    background-color: #4e545b; /* Darker background color on hover */
+  }
+  
+  .confirmation-dialog button:focus {
+    outline: none;
+  }
+  
+  .confirmation-dialog button.yes {
+    background-color: #dc3545; /* Red color for 'Yes' button */
+    color: #fff;
+  }
+  
+  .confirmation-dialog button.no {
+    background-color: #007bff; /* Blue color for 'No' button */
+    color: #fff;
+  }
+  

@@ -13,4 +13,3 @@ function PathParameters() {
   );
 }
 export default PathParameters;
-

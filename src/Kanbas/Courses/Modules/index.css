@@ -1,35 +1,38 @@
-.wd-modules,
-.wd-modules * {
-  border-radius: 0%;
+.form-check-input {
+  border-radius: 50%;
+}
+
+.list-group-item-action a {
+  color: red;
+  text-decoration: none;
+}
+
+.status_buttons .list-group-item-action {
   border: none;
-  margin: 0px;
-  padding: 0px;
+  padding-bottom: 0;
 }
 
-.wd-modules {
-  margin: 0px;
+.status_buttons .list-group-item-action button {
+  width: 100%;
 }
 
-.wd-modules > li {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(14, 14, 14) !important;
+.view_calender a {
+  text-decoration: none;
+  color: red;
 }
 
-.wd-modules > li > div {
-  padding: 6px;
-  border-left: 1px solid gray !important;
+.comming_up li {
+  border: none;
 }
 
-.wd-modules > li > ul > li {
-  padding: 5px;
-  border-top: 1px solid gray !important;
-  border-left: 2px solid green;
+.wd-course-navigation-sm-size {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  /* margin-bottom: 20px; */
 }
 
-.wd-modules > li {
-  margin-bottom: 20px;
-}
-
-.button-style{
-    color: #333333; background-color: azure; border: #E5E2E2 solid 1px;
+.wd-course-navigation-sm-size a {
+  text-decoration: none;
+  color: white;
 }

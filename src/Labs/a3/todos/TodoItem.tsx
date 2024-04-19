@@ -8,4 +8,4 @@ const TodoItem = ( { todo = { done: true, title: 'Buy milk',
    </li>
  );
 }
-export default TodoItem;
+export default TodoItem

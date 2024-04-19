@@ -14,4 +14,4 @@ function FunctionDestructing() {
         difference = {difference}
       </div>
    );}
-   export default FunctionDestructing;   
+   export default FunctionDestructing;

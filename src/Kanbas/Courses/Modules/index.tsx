@@ -1,9 +1,8 @@
 import ModuleList from "./List";
 function Modules() {
   return (
-    <div>
-      <br></br>
-      <ModuleList/>
+    <div className="col" style={{ marginLeft: "20px" }}>
+      <ModuleList />
     </div>
   );
 }

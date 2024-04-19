@@ -17,5 +17,7 @@ const Styles = () => {
         <div style={ bgRed }> Red background </div>
         <div style={ bgBlue }>Blue background</div>
       </div>
-   );};
-export default Styles;
+   );
+};
+export default Styles
+   
