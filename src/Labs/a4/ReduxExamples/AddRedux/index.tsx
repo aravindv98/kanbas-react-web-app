@@ -34,4 +34,4 @@ function AddRedux() {
     </div>
   );
 }
-export default AddRedux;
+export default AddRedux

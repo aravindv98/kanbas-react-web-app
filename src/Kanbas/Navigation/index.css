@@ -1,132 +1,53 @@
+.wd-kanbas-navigation .wd-icon {
+    font-size: 2em;
+}
+
+.wd-kanbas-navigation .list-group-item:first-child,
+.wd-kanbas-navigation .list-group-item:last-child,
+.wd-kanbas-navigation .list-group-item.active:last-child,
+.wd-kanbas-navigation.list-group {
+    border-radius: 0px;
+}
+
 .wd-kanbas-navigation {
     background-color: black;
     list-style: none;
-    padding: 0px;  margin: 0px;
+    padding: 0px;
     width: 80px;
-    overflow-y: auto;
-    position: fixed;
+    margin: 0px;
     height: 100%;
-    flex-direction: column;
-  }
-  .wd-kanbas-navigation li {
-    padding: 10px;     margin-bottom: 10px;
-    font-size: 0.8em;  text-align: center;
-  }
-  .wd-kanbas-navigation li.wd-active {
+}
+
+.wd-kanbas-navigation a {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    text-align: center;
+    background-color: black;
+    border: none;
+}
+
+.wd-kanbas-navigation a.active {
     background-color: white;
-  }
-  .wd-kanbas-navigation li.wd-active a {
+}
+
+.wd-kanbas-navigation a.active {
     color: red;
-  }
-  .wd-kanbas-navigation a {
+}
+
+.wd-kanbas-navigation a {
     color: white;
     text-decoration: none;
-  }
-  .wd-kanbas-navigation a i {
+}
+
+.red-icon {
     color: red;
-    font-size: 2em;
-    margin-bottom: 5px;
-  }
-  .wd-kanbas-navigation img{
-    height: 58px;
-    width: 58px;
-  }
-  .avatar {
-    overflow: hidden;
-    border-radius: 100%;
-    border: 2px solid #ffffff;
-    width: 50px;
-    height: 50px;
-    box-sizing: border-box;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  .second-navigation a{
-    color: red; 
-    text-align: left;
-    list-style: none;
-    text-decoration: none;
-   
 }
-.second-navigation ul{
-    color: red; 
-    text-align: left;
-    list-style: none;
-    text-decoration: none;
-    padding-left: 0;
-    word-wrap: break-word;
-    hyphens: none;
-    line-height: 2.4;  
-}
-.second-navigation i{
-    color: gray;
-    float: right
-  }
-.second-navigation li.wd-active{
-    padding-left: 4px;
-    font-weight: bold;
-    border-left: 2px solid;
-    border-left-width: 4px;
-    border-left-style: solid;
-    border-left-color: black;
-    color: black;
-    margin-bottom: 10px;
-}
-.second-navigation a.wd-active{
-    color: black;
-}
-.cardsclass{
-    color: darkblue;
 
+.neu-logo {
+    background-color: black;
+    border: none;
+    height: 60px;
+    width: 100%;
+    padding: 0px;
 }
-.cardsclass a{
-    text-decoration: none;
-}
-/**Courses home screen */
-.courses-sidebar .btn{
-    border-radius: 3px;
-    border-color: #c7cdd1;
-    color: black;
-    padding: 8px;
-    line-height: 20px;
-    cursor: pointer;
-    display: block;
-}
-.assignments{
-    box-sizing: border-box;
-}
-.assignments btn{
-    font-size: 1rem;
-    display: inline-block;
-    line-height: 1.5;
-    text-align: center;
-    vertical-align: middle;
-    border-radius: 0.25rem;
-    padding: 0.375rem 0.75rem;
-}
-.assignments a{
-    text-decoration: none;
-    cursor: pointer;
-    color: black;
-
-}
-.wd-course-status ul{
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-.wd-course-status li{
-list-style: none;
-text-align: left;
-word-wrap: break-word;
-}
-.wd-course-status btn{
-
-    cursor: pointer;
-    padding: 10px;
-
-}
-.wd-navbar a{
-    text-decoration: none; 
-    color: black;
-} 

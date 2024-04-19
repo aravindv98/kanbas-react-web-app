@@ -1,16 +1,14 @@
 import ModuleList from "../Modules/List";
-import Status from "./status";
+import Toolbar from "../Modules/Components/Toolbar";
+import CourseStatus from "./Status";
+
 function Home() {
   return (
-    <div className="container-fluid">
-    <div className="row">
-    <div className="column col-8 third">
-      <ModuleList />
+    <div className="d-flex">
+      <div className="col-9">
+        <ModuleList />
       </div>
-    <div className="column col-3 fourth">
-      <Status/>
-      </div>
-    </div>
+      <CourseStatus />
     </div>
   );
 }

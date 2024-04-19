@@ -1,4 +1,4 @@
-function JsonStringify() {
+function JsonStringify(){
     const squares = [1, 4, 16, 25, 36];
     return (
       <>
@@ -6,5 +6,5 @@ function JsonStringify() {
         squares = {JSON.stringify(squares)}
       </>
     );
-  }
-  export default JsonStringify;
+}
+export default JsonStringify

@@ -1,36 +1,96 @@
-import React, { useEffect, useState } from "react";
-import "./index.css";
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
-import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import * as client from "./client";
 import {
   addModule,
   deleteModule,
   updateModule,
   setModule,
   setModules
-} from "./reducer";
-import { KanbasState } from "../../Store";
+} from "./moduleReducer";
+import React, {useEffect} from "react";
+import {
+  FaGripVertical,
+  FaEllipsisV,
+  FaPlus,
+  FaCheckCircle,
+  FaLink,
+} from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import "./index.css";
+import * as client from "./client";
+
+function ListItem({ title, children, module, dispatch } : {
+    title:any,
+    children:any,
+    module:any,
+    dispatch:any
+}) {
+  const handleDeleteModule = (moduleId: string) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+
+  return (
+    <li className="list-group-item">
+      <FaGripVertical />
+      <span className="ps-2 fw-semibold fs-5">{title}</span>
+      <button
+        onClick={() => dispatch(setModule(module))}
+        className="btn btn-success mt-4 float-end"
+        style={{ fontSize: "12px" }}
+      >
+        Edit
+      </button>
+      <button
+        onClick={() => handleDeleteModule(module._id)}
+        className="btn btn-danger m-4 float-end"
+        style={{ fontSize: "12px" }}
+      >
+        Delete
+      </button>
+
+      {children}
+    </li>
+  );
+}
+
+function SubListItem({ content, isLink = false } : {content:any, isLink :any}) {
+  return (
+    <li
+      className="list-group-item list-group-item-action"
+      style={{ paddingLeft: "0px", paddingRight: "0px", marginTop: "10px" }}
+    >
+      <FaGripVertical />
+      <span className="ps-5">
+        {isLink ? (
+          <a href="#">
+            <FaLink />
+            {content}
+          </a>
+        ) : (
+          content
+        )}
+      </span>
+      <FaEllipsisV className="float-end" style={{ color: "#050505" }} />
+      <FaCheckCircle className="float-end me-3 text-success" />
+    </li>
+  );
+}
+
 function ModuleList() {
-    const { courseId } = useParams();
-    useEffect(() => {
-      client.findModulesForCourse(courseId)
-        .then((modules) =>
-          dispatch(setModules(modules))
-      );
-    }, [courseId]);  
-    const moduleList = useSelector((state: KanbasState) => 
-    state.modulesReducer.modules);
-  const module = useSelector((state: KanbasState) => 
-    state.modulesReducer.module);
-  const dispatch = useDispatch();
+  const { courseId } = useParams();
+  useEffect(() => {
+    client.findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
   const handleAddModule = () => {
     client.createModule(courseId, module).then((module) => {
       dispatch(addModule(module));
     });
   };
-  const handleDeleteModule = (moduleId: string) => {
+  const handleDeleteModule = (moduleId : any) => {
     client.deleteModule(moduleId).then((status) => {
       dispatch(deleteModule(moduleId));
     });
@@ -39,79 +99,90 @@ function ModuleList() {
     const status = await client.updateModule(module);
     dispatch(updateModule(module));
   };
+
+  const modules = useSelector((state:any) => state.modulesReducer.modules);
+  const module = useSelector((state:any) => state.modulesReducer.module);
+  const dispatch = useDispatch();
   return (
-<div className="container-fluid">
-    <div className="btn-group">
-    <div className="btn btn-outline-secondary ">View Progress</div>
-    <div className="btn btn-outline-secondary">Collapse All</div>
-    <div className="btn-group">
-      <button
-        type="button"
-        className="btn btn-outline-secondary dropdown-toggle"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-       
+    <div className="row mt-5">
+      <div
+        className="d-flex justify-content-between"
+        style={{ marginRight: "10px" }}
       >
-        <FaCheckCircle style={{ color: 'green' }}></FaCheckCircle> Publish All
-      </button>
-      <ul className="dropdown-menu">
-        <li><a className="dropdown-item" href="#">Unpublish</a></li>
-        <li><a className="dropdown-item" href="#">Publish Selected action</a></li>
-        <li><a className="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-    <div className="btn btn-outline-secondary ">
-      <FaEllipsisV></FaEllipsisV>
-    </div>
-  </div>
-  <hr></hr>
-
-  <h3>Modules</h3>
-    
-  <button onClick={handleAddModule}
-  className="btn btn-danger"> + Module</button>
-  <button onClick={handleUpdateModule} className="btn btn-success">
-                Update
-        </button>
-
-        <input className = "form-control" value={module.name}
-          onChange={(e) =>
-            dispatch(setModule({ ...module, name: e.target.value }))
-          }
-        />
-        <input className = "form-control" value={module._id}
-          onChange={(e) =>
-            dispatch(setModule({ ...module, _id: e.target.value }))
-          }
-        />
-        <textarea className = "form-control" value={module.description}
-           onChange={(e) =>
-            dispatch(setModule({ ...module, description: e.target.value }))}
-        />
-    <ul className="list-group wd-modules">
-  <br></br>
-  <br></br>
-    {moduleList
-        .filter((module) => module.course === courseId)
-        .map((module, index) => (
-          <li key={index} className="list-group-item" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-              <h5><strong>{module.name}</strong></h5>
-              <p>{module.description}</p>
-              <p>{module._id}</p>
+        <form className="w-100">
+          <div className="row">
+            <div className="mb-1 col-md-6">
+              <label className="form-label">Module Name</label>
+              <input
+                className="form-control"
+                value={module.name}
+                onChange={(e) =>
+                  dispatch(setModule({ ...module, name: e.target.value }))
+                }
+              />
+            </div>
+            <div className="mb-1 col-md-6">
+              <label className="form-label">Module Discription</label>
+              <textarea
+                className="form-control"
+                value={module.description}
+                onChange={(e) =>
+                  dispatch(
+                    setModule({ ...module, description: e.target.value })
+                  )
+                }
+              />
+            </div>
           </div>
-          <button className="btn btn-success btn-lg"
-              onClick={() => dispatch(setModule(module))}>
-              Edit
-            </button>
+        </form>
 
-          <button className="btn btn-success btn-lg" onClick={() => handleDeleteModule(module._id)}>
-              Delete
-          </button>
-      </li>
-      ))}
+        <button
+          onClick={handleUpdateModule}
+          className="btn btn-primary m-3"
+          type="button"
+          style={{ fontSize: "12px" }}
+        >
+          Update
+        </button>
+        <button
+          onClick={handleAddModule}
+          className="btn btn-success m-3"
+          type="button"
+          style={{ fontSize: "12px" }}
+        >
+          <FaPlus className="m-1" />
+          Module
+        </button>
+      </div>
 
+      <ul
+        className="list-group border-start border-3 border-success mt-3"
+        style={{ marginBottom: "20px" }}
+      >
+        {modules
+          .filter((module:any) => module.course === courseId)
+          .map((module:any) => (
+            <ListItem
+              key={module._id}
+              title={module.name}
+              module={module}
+              dispatch={dispatch}
+            >
+              <ul className="list-group">
+                {Object.keys(module)
+                  .filter((key) => key.startsWith("description"))
+                  .map((descKey, index) => (
+                    <SubListItem
+                      key={index}
+                      content={module[descKey]}
+                      isLink={module.name === "Slides"}
+                    />
+                  ))}
+              </ul>
+            </ListItem>
+          ))}
       </ul>
+      <br />
     </div>
   );
 }

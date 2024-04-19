@@ -1,18 +1,14 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { LabState } from "../../../store";
 import { addTodo, updateTodo, setTodo } from "./todosReducer";
+import { LabState } from "../../../store";
 
 function TodoForm() {
-
-    const { todo } = useSelector((state : LabState) => state.todosReducer);
+    const {todo} = useSelector((state: LabState) => state.todosReducer);
     const dispatch = useDispatch();
     return (
       <li className="list-group-item">
-        <button className="btn btn-green" onClick={() => dispatch(addTodo(todo))}> Add </button>
-        <button onClick={() => dispatch(updateTodo(todo))}
-        style={{backgroundColor:'orange', padding: '5px', margin: '2px'}}
-        > Update </button>
+        <button onClick={() => dispatch(addTodo(todo))}> Add </button>
+        <button onClick={() => dispatch(updateTodo(todo))}> Update </button>
         <input
           value={todo.title}
           onChange={ (e) => dispatch(setTodo({ ...todo, title: e.target.value })) }

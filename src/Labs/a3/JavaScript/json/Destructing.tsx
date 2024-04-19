@@ -22,5 +22,3 @@ function Destructing() {
     );
    }
    export default Destructing;
-   
-   
