@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { User } from "./client";
 import * as client from "./client";
-import React from "react";
 export default function Signin() {
     const [credentials, setCredentials] = useState<User>({
         _id: "",
